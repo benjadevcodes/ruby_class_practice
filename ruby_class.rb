@@ -34,6 +34,11 @@ class MyCar
         @current_speed = 0
         puts "The car is off"
     end
+
+    def spray_paint(new_color)
+        self.color = new_color
+        puts "Your car new color is #{new_color}"
+    end
 end
 
 mazda = MyCar.new("1995","Red", "Sport")
@@ -54,3 +59,5 @@ mazda.current_speed
 
 mazda.shut_off
 mazda.current_speed
+
+mazda.spray_paint("Blue")
