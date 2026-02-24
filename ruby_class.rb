@@ -1,4 +1,6 @@
 class MyCar
+    attr_accessor :color # This allows to change and view the color
+    attr_reader :year # this allows to only view the year
 
     def initialize(year, color, model) 
       # States
@@ -35,6 +37,10 @@ class MyCar
 end
 
 mazda = MyCar.new("1995","Red", "Sport")
+
+mazda.color = "Black" # Set new color with accesor
+puts "New Color: #{mazda.color}"
+puts "Year: #{mazda.year}"
 
 mazda.speed_up(20)
 mazda.current_speed
