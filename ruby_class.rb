@@ -1,33 +1,40 @@
 class MyCar
 
-    def initialize(year, color, model) 
-      # States
-      @speed = 0
-      puts "-----------Specification-------------"
-      @year = year
-      puts "The year is: #{year}"
-      @color = color
-      puts "The color is: #{color}"
-      @model = model
-      puts "The model is: #{model}"
-      puts "-----------Actions-------------"
-    end
+  def initialize(year, model, color)
+    @year = year
+    @model = model
+    @color = color
+    @current_speed = 0
+  end
 
-    # Methods 
-    def speed_up # add speed to @speed variable 
-      puts "The car is moving"
-    end
-    
-    def brake # slow down the cars and then stops
-      puts "The car stops"
-    end
+  def speed_up(number)
+    @current_speed += number
+    puts "You push the gas and accelerate #{number} mph."
+  end
 
-    def shut_off
-      puts "The car is off"
-    end
+  def brake(number)
+    @current_speed -= number
+    puts "You push the brake and decelerate #{number} mph."
+  end
+
+  def current_speed
+    puts "You are now going #{@current_speed} mph."
+  end
+
+  def shut_down
+    @current_speed = 0
+    puts "Let's park this bad boy!"
+  end
 end
 
-mazda = MyCar.new("1995","Red", "Sport")
-mazda.speed_up
-mazda.brake
-mazda.shut_off
+lumina = MyCar.new(1997, 'chevy lumina', 'white')
+lumina.speed_up(20)
+lumina.current_speed
+lumina.speed_up(20)
+lumina.current_speed
+lumina.brake(20)
+lumina.current_speed
+lumina.brake(20)
+lumina.current_speed
+lumina.shut_down
+lumina.current_speed
