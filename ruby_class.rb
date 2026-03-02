@@ -39,25 +39,29 @@ class MyCar
         self.color = new_color
         puts "Your car new color is #{new_color}"
     end
+
+    def self.gas_mileage(gallons, miles) # class method
+      performance = miles / gallons 
+      puts "Your car performance #{performance} per gallon of gas"
+
+    end
 end
 
 mazda = MyCar.new("1995","Red", "Sport")
 
-mazda.color = "Black" # Set new color with accesor
-puts "New Color: #{mazda.color}"
-puts "Year: #{mazda.year}"
+# mazda.color = "Black" # Set new color with accesor
+# puts "New Color: #{mazda.color}"
+# puts "Year: #{mazda.year}"
+# mazda.speed_up(20)
+# mazda.current_speed
+# mazda.speed_up(20)
+# mazda.current_speed
+# mazda.brake(20)
+# mazda.current_speed
+# mazda.brake(20)
+# mazda.current_speed
+# mazda.shut_off
+# mazda.current_speed
+# mazda.spray_paint("Blue")
 
-mazda.speed_up(20)
-mazda.current_speed
-mazda.speed_up(20)
-mazda.current_speed
-
-mazda.brake(20)
-mazda.current_speed
-mazda.brake(20)
-mazda.current_speed
-
-mazda.shut_off
-mazda.current_speed
-
-mazda.spray_paint("Blue")
+puts MyCar.gas_mileage(13, 351)
