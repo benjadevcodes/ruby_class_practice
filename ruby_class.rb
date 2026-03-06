@@ -76,7 +76,7 @@ end
 
 
 mazda = MyCar.new("1995","Red", "Sport")
-peyo = MyTruck.new("1995","Red", "Sport")
+
 
 # mazda.color = "Black" # Set new color with accesor
 # puts "New Color: #{mazda.color}"
@@ -93,6 +93,8 @@ peyo = MyTruck.new("1995","Red", "Sport")
 # mazda.current_speed
 # mazda.spray_paint("Blue")
 
-puts MyCar.gas_mileage(13, 351)
+#puts MyCar.gas_mileage(13, 351)
+#Vehicle.show_number_of_objets
 
-Vehicle.show_number_of_objets
+puts "Path"
+puts MyTruck.ancestors
