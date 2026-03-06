@@ -1,21 +1,5 @@
-class MyCar
-    attr_accessor :color # This allows to change and view the color
-    attr_reader :year # this allows to only view the year
-
-    def initialize(year, color, model) 
-      # States
-      @current_speed = 0
-      puts "-----------Specification-------------"
-      @year = year
-      puts "The year is: #{year}"
-      @color = color
-      puts "The color is: #{color}"
-      @model = model
-      puts "The model is: #{model}"
-      puts "-----------Actions-------------"
-    end
-
-    # Methods 
+class Vehicle
+      # Methods 
     def speed_up(number) # add speed to @current_speed variable
         @current_speed += number
         puts "The car is moving at #{number} mph"
@@ -45,6 +29,34 @@ class MyCar
       puts "Your car performance #{performance} per gallon of gas"
 
     end
+end
+
+class MyCar < Vehicle
+    NUMBER_O_DOORS = 4
+
+
+    attr_accessor :color # This allows to change and view the color
+    attr_reader :year # this allows to only view the year
+
+    def initialize(year, color, model) 
+      # States
+      @current_speed = 0
+      puts "-----------Specification-------------"
+      @year = year
+      puts "The year is: #{year}"
+      @color = color
+      puts "The color is: #{color}"
+      @model = model
+      puts "The model is: #{model}"
+      puts "-----------Actions-------------"
+    end
+
+class MyTruck < Vehicle
+    NUMBER_O_DOORS = 2
+      
+end    
+
+
 end
 
 mazda = MyCar.new("1995","Red", "Sport")
