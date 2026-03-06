@@ -1,5 +1,26 @@
 class Vehicle
-      # Methods 
+    @@number_of_objets = 0 # class variable
+
+    # Methods 
+    def self.show_number_of_objets # class method
+      puts "You create #{@@number_of_objets} vehicles"
+    end
+
+    def initialize(year, color, model) 
+      # States
+      @@number_of_objets +=1
+
+      @current_speed = 0
+      puts "-----------Specification-------------"
+      @year = year
+      puts "The year is: #{year}"
+      @color = color
+      puts "The color is: #{color}"
+      @model = model
+      puts "The model is: #{model}"
+      puts "-----------Actions-------------"
+    end
+
     def speed_up(number) # add speed to @current_speed variable
         @current_speed += number
         puts "The car is moving at #{number} mph"
@@ -34,22 +55,10 @@ end
 class MyCar < Vehicle
     NUMBER_O_DOORS = 4
 
-
     attr_accessor :color # This allows to change and view the color
     attr_reader :year # this allows to only view the year
-
-    def initialize(year, color, model) 
-      # States
-      @current_speed = 0
-      puts "-----------Specification-------------"
-      @year = year
-      puts "The year is: #{year}"
-      @color = color
-      puts "The color is: #{color}"
-      @model = model
-      puts "The model is: #{model}"
-      puts "-----------Actions-------------"
-    end
+end
+    
 
 class MyTruck < Vehicle
     NUMBER_O_DOORS = 2
@@ -57,9 +66,10 @@ class MyTruck < Vehicle
 end    
 
 
-end
+
 
 mazda = MyCar.new("1995","Red", "Sport")
+peyo = MyTruck.new("1995","Red", "Sport")
 
 # mazda.color = "Black" # Set new color with accesor
 # puts "New Color: #{mazda.color}"
@@ -77,3 +87,5 @@ mazda = MyCar.new("1995","Red", "Sport")
 # mazda.spray_paint("Blue")
 
 puts MyCar.gas_mileage(13, 351)
+
+Vehicle.show_number_of_objets
