@@ -16,11 +16,11 @@ class Vehicle
       @current_speed = 0
       puts "-----------Specification-------------"
       @year = year
-      puts "The year is: #{year}"
+      puts "The year is: #{@year}"
       @color = color
-      puts "The color is: #{color}"
+      puts "The color is: #{@color}"
       @model = model
-      puts "The model is: #{model}"
+      puts "The model is: #{@model}"
       puts "-----------Actions-------------"
     end
 
@@ -59,6 +59,18 @@ class Vehicle
         puts "Your car new color is #{new_color}"
     end
 
+    def age
+    puts "The vehicle is #{calculate} years old"
+    end
+
+    def calculate
+      today_year = Time.now.year.to_i
+      creation_year = @year.to_i
+      result = today_year - creation_year
+      return result
+    end
+  
+    private :calculate
 end
 
 class MyCar < Vehicle
@@ -70,28 +82,34 @@ class MyTruck < Vehicle
     include Towable 
 end    
 
-mazda = MyCar.new("1995","Red", "Sport")
+mazda = MyCar.new("1986","Red", "Sport")
 scania = MyTruck.new("2001", "White", "Europe 1")
 
-mazda.color = "Black" # Set new color with accesor
-puts "New Color: #{mazda.color}"
-puts "Year: #{mazda.year}"
-mazda.speed_up(20)
-mazda.current_speed
-mazda.brake(20)
-mazda.shut_off
-mazda.spray_paint("Blue")
+# mazda.color = "Black" # Set new color with accesor
+# puts "New Color: #{mazda.color}"
+# puts "Year: #{mazda.year}"
+# mazda.speed_up(20)
+# mazda.current_speed
+# mazda.brake(20)
+# mazda.shut_off
+# mazda.spray_paint("Blue")
 
-MyCar.gas_mileage(13, 351)
-Vehicle.show_number_of_objets
+# MyCar.gas_mileage(13, 351)
+# Vehicle.show_number_of_objets
 
-puts "Path"
-puts MyTruck.ancestors
+# puts "Path"
+# puts MyTruck.ancestors
 
-scania.color = "White"
-scania.speed_up(20)
-scania.current_speed
-scania.brake(20)
-scania.shut_off
-scania.spray_paint("Blue")
-MyTruck.gas_mileage(14, 355)
+# scania.color = "White"
+# scania.speed_up(20)
+# scania.current_speed
+# scania.brake(20)
+# scania.shut_off
+# scania.spray_paint("Blue")
+# MyTruck.gas_mileage(14, 355)
+
+mazda.age
+#mazda.calculate # verification of private privilege
+
+scania.age
+#scania.calculate
