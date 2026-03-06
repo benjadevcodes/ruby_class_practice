@@ -5,16 +5,13 @@ module Towable
 end
 
 class Vehicle
-    @@number_of_objets = 0 # class variable
-
-    # Methods 
-    def self.show_number_of_objets # class method
-      puts "You create #{@@number_of_objets} vehicles"
-    end
+    attr_accessor :color # This allows to change and view the color
+    attr_reader :year # this allows to only view the year
+    @@number_of_objects = 0 # class variable
 
     def initialize(year, color, model) 
       # States
-      @@number_of_objets +=1
+      @@number_of_objects +=1
 
       @current_speed = 0
       puts "-----------Specification-------------"
@@ -27,14 +24,25 @@ class Vehicle
       puts "-----------Actions-------------"
     end
 
+       # Methods 
+    def self.show_number_of_objets # class method
+      puts "You create #{@@number_of_objects} vehicles"
+    end
+
+    def self.gas_mileage(gallons, miles) # class method
+      performance = miles / gallons 
+      puts "Your car performance #{performance} per gallon of gas"
+
+    end
+
     def speed_up(number) # add speed to @current_speed variable
         @current_speed += number
         puts "The car is moving at #{number} mph"
     end
     
     def brake(number) # slow down the cars and then stops
-        @current_speed += number
-        puts "The car slowdows to #{number} mph"
+        @current_speed -= number
+        puts "The car slow down to #{number} mph"
     end
 
     def current_speed
@@ -51,50 +59,39 @@ class Vehicle
         puts "Your car new color is #{new_color}"
     end
 
-    def self.gas_mileage(gallons, miles) # class method
-      performance = miles / gallons 
-      puts "Your car performance #{performance} per gallon of gas"
-
-    end
 end
 
 class MyCar < Vehicle
-    NUMBER_O_DOORS = 4
-
-    attr_accessor :color # This allows to change and view the color
-    attr_reader :year # this allows to only view the year
+    NUMBER_OF_DOORS = 4  
 end
     
-
 class MyTruck < Vehicle
-    NUMBER_O_DOORS = 2
-    include Towable
-      
+    NUMBER_OF_DOORS = 2
+    include Towable 
 end    
 
-
-
-
 mazda = MyCar.new("1995","Red", "Sport")
+scania = MyTruck.new("2001", "White", "Europe 1")
 
+mazda.color = "Black" # Set new color with accesor
+puts "New Color: #{mazda.color}"
+puts "Year: #{mazda.year}"
+mazda.speed_up(20)
+mazda.current_speed
+mazda.brake(20)
+mazda.shut_off
+mazda.spray_paint("Blue")
 
-# mazda.color = "Black" # Set new color with accesor
-# puts "New Color: #{mazda.color}"
-# puts "Year: #{mazda.year}"
-# mazda.speed_up(20)
-# mazda.current_speed
-# mazda.speed_up(20)
-# mazda.current_speed
-# mazda.brake(20)
-# mazda.current_speed
-# mazda.brake(20)
-# mazda.current_speed
-# mazda.shut_off
-# mazda.current_speed
-# mazda.spray_paint("Blue")
-
-#puts MyCar.gas_mileage(13, 351)
-#Vehicle.show_number_of_objets
+MyCar.gas_mileage(13, 351)
+Vehicle.show_number_of_objets
 
 puts "Path"
 puts MyTruck.ancestors
+
+scania.color = "White"
+scania.speed_up(20)
+scania.current_speed
+scania.brake(20)
+scania.shut_off
+scania.spray_paint("Blue")
+MyTruck.gas_mileage(14, 355)
