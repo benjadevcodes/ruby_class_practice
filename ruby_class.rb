@@ -69,7 +69,6 @@ class Vehicle
       result = today_year - creation_year
       return result
     end
-  
     private :calculate
 end
 

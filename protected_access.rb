@@ -21,4 +21,4 @@ john = Student.new("John", 50)
 
 puts "Well done!" if john.better_grade_than?(bob)
 
-#puts bob.grade # error, protecte no permite llamdo de afuera
+#puts bob.grade # error, protected dont allow calls from outside the class
